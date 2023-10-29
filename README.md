@@ -4,6 +4,13 @@
 
 - **Version**: v0.1
 - **Supported QGIS Version**: v3.X
+## How to install
+- Download the [beta release](https://github.com/AnassMarzouki/PyGeoRS/releases/download/v0.1/pygeors.zip).
+- In QGIS, navigate to Plugins menu
+- click 'Manage and Install plugins'
+- From the left tabs, select 'Install from ZIP'
+- load 'pygeors.zip' and hit Install
+- When installation is finished, please restart QGIS
 
 ## Features
 
