@@ -1,0 +1,1423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>class_nameDialogBase</class>
+ <widget class="QDialog" name="class_nameDialogBase">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>919</width>
+    <height>847</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>919</width>
+    <height>847</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>919</width>
+    <height>847</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>PyGeoRS v0.1</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/pygeors/icon.png</normaloff>../AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/pygeors/icon.png</iconset>
+  </property>
+  <property name="locale">
+   <locale language="English" country="World"/>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>false</bool>
+  </property>
+  <property name="modal">
+   <bool>false</bool>
+  </property>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>20</y>
+     <width>431</width>
+     <height>291</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="title">
+    <string>Spectral Indices and Band Ratios</string>
+   </property>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>220</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Custom FCC's</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>260</y>
+      <width>91</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <item>
+     <property name="text">
+      <string>1. Coastal</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>2. Blue</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>3. Green</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>4. Red</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>5. NIR</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>6. SWIR 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>7. SWIR 2</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="comboBox_2">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>260</y>
+      <width>91</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <item>
+     <property name="text">
+      <string>1. Coastal</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>2. Blue</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>3. Green</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>4. Red</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>5. NIR</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>6. SWIR 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>7. SWIR 2</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="comboBox_3">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>260</y>
+      <width>91</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <item>
+     <property name="text">
+      <string>1. Coastal</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>2. Blue</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>3. Green</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>4. Red</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>5. NIR</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>6. SWIR 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>7. SWIR 2</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>260</y>
+      <width>55</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;span style='color:red;'&gt;Red&lt;/span&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>260</y>
+      <width>55</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;span style='color:green;'&gt;Green&lt;/span&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>260</y>
+      <width>55</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;span style='color:blue;'&gt;Blue&lt;/span&gt;</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>351</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <item>
+     <property name="text">
+      <string>Select a Spectral Index ...</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Modified Normalized Difference Water Index (MNDWI)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Normalized Difference Enhanced Sand Index (NDESI)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Normalized Difference Vegetation Index (NDVI)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Normalized Difference Water Index (NDWI)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Clay Minerals Ratio</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Ferrous Minerals Ratio</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Iron Oxyde Ratio</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>151</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Pre-defined Band Ratios</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_6">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>140</y>
+      <width>91</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <item>
+     <property name="text">
+      <string>1. Coastal</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>2. Blue</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>3. Green</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>4. Red</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>5. NIR</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>6. SWIR 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>7. SWIR 2</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="comboBox_7">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>170</y>
+      <width>91</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>1. Coastal</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>2. Blue</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>3. Green</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>4. Red</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>5. NIR</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>6. SWIR 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>7. SWIR 2</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="comboBox_8">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>140</y>
+      <width>91</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <item>
+     <property name="text">
+      <string>1. Coastal</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>2. Blue</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>3. Green</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>4. Red</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>5. NIR</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>6. SWIR 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>7. SWIR 2</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="comboBox_9">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>170</y>
+      <width>91</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <item>
+     <property name="text">
+      <string>1. Coastal</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>2. Blue</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>3. Green</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>4. Red</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>5. NIR</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>6. SWIR 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>7. SWIR 2</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="comboBox_10">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>140</y>
+      <width>91</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <item>
+     <property name="text">
+      <string>1. Coastal</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>2. Blue</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>3. Green</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>4. Red</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>5. NIR</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>6. SWIR 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>7. SWIR 2</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="comboBox_11">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>170</y>
+      <width>91</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>1. Coastal</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>2. Blue</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>3. Green</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>4. Red</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>5. NIR</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>6. SWIR 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>7. SWIR 2</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>160</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_2">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>160</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_3">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>160</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>160</y>
+      <width>55</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;R=&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>160</y>
+      <width>55</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#007300;&quot;&gt;G=&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>160</y>
+      <width>55</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#0000f7;&quot;&gt;B=&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_11">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>120</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Custom Band Ratio</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="cB_calculate_all_br">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>200</y>
+      <width>221</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Calculate all possible Band Ratios</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="cB_abrams">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>81</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Abrams</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="cB_sabins">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>90</y>
+      <width>81</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Sabins</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="cB_kaufmann">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>90</y>
+      <width>81</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Kaufmann</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_3">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>90</y>
+     <width>441</width>
+     <height>361</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="title">
+    <string>RS Tasks</string>
+   </property>
+   <widget class="QCheckBox" name="cB_layer_stacking">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>161</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Perform Layer Stacking</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="cB_calculate_oif">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>150</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Calculate OIF</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="cB_calculate_pca">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>180</y>
+      <width>251</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Calculate Principal Component Analysis</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="cB_calculate_ica">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>210</y>
+      <width>291</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Calculate Independant Component Analysis</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="cB_calculate_mnf">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>240</y>
+      <width>231</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Calculate Minimum Noise Fraction</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="cB_dn_to_toa">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>120</y>
+      <width>211</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Convert DN to ToA Reflectances</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_13">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>131</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Crop using shapefile ?</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pB_load_shapefile">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>80</y>
+      <width>121</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Load ShapeFile</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="cB_extract_archive">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>141</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Extract archive</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>90</y>
+      <width>95</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Yes</string>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_2">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>90</y>
+      <width>95</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>No</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pB_load_mtl">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>120</y>
+      <width>151</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Load MTL file</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="cB_calculate_br">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>300</y>
+      <width>191</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Generate Band Ratio Image</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="cB_calculate_index">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>270</y>
+      <width>181</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Calculate spectral Index</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="cB_generate_fcc">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>330</y>
+      <width>181</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Generate FCC Image</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QScrollArea" name="scrollArea_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>480</y>
+     <width>881</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>879</width>
+      <height>129</height>
+     </rect>
+    </property>
+    <widget class="QTextEdit" name="textEdit">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>881</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>8</pointsize>
+      </font>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>460</y>
+     <width>55</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Events</string>
+   </property>
+  </widget>
+  <widget class="QProgressBar" name="progressBar">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>630</y>
+     <width>211</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="value">
+    <number>0</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>630</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Progression</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_12">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>640</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>File Explorer</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pB_load_data">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>20</y>
+     <width>121</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Load Landsat Data</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>311</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>  Load your Landsat 8 / 9 data (TIF or tar / tar.gz)</string>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QTreeView" name="treeView">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>660</y>
+     <width>881</width>
+     <height>141</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pB_quit">
+   <property name="geometry">
+    <rect>
+     <x>790</x>
+     <y>810</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Quit PyGeoRS</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>50</y>
+     <width>311</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>  Select your output folder</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pB_select_output_folder">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>50</y>
+     <width>121</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Set output folder</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pB_proceed">
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>320</y>
+     <width>141</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>P R O C E E D</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pB_help">
+   <property name="geometry">
+    <rect>
+     <x>810</x>
+     <y>320</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Help</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
