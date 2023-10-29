@@ -54,3 +54,7 @@ pip install package_name
 ## Feedback & Contribution
 
 Your feedback and contributions are vital to the continued improvement and development of PyGeoRS. Kindly refer to the official documentation and latest updates on our GitHub repository. Dive in, explore, and let's make the world of remote sensing in QGIS even more vibrant!
+
+## Authors
+- **Anass MARZOUKI** - anass.marzouki@usmba.ac.ma
+- **Abdallah DRIDRI** - abdallah.dridri@usmba.ac.ma
