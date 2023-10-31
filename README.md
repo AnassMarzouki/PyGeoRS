@@ -4,7 +4,12 @@
 
 - **Version**: v0.1
 - **Supported QGIS Version**: v3.X
+- **Approved by QGIS** : https://plugins.qgis.org/plugins/pygeors/
 ## How to install
+Automatic install:
+- Search for 'PyGeoRS' in QGIS plugin repository and click install
+  
+Manual install:
 - Download the [beta release](https://github.com/AnassMarzouki/PyGeoRS/releases/download/v0.1/pygeors.zip).
 - In QGIS, navigate to Plugins menu
 - click 'Manage and Install plugins'
