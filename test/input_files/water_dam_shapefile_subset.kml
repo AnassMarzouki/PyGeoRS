@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="water_dam_shapefile_subset" id="water_dam_shapefile_subset">
+	<SimpleField name="CLASS_NAME" type="string"></SimpleField>
+	<SimpleField name="CLASS_ID" type="string"></SimpleField>
+	<SimpleField name="CLASS_CLRS" type="string"></SimpleField>
+</Schema>
+<Folder><name>water_dam_shapefile_subset</name>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#water_dam_shapefile_subset">
+		<SimpleData name="CLASS_NAME">ROI #1</SimpleData>
+		<SimpleData name="CLASS_ID">1</SimpleData>
+		<SimpleData name="CLASS_CLRS">255,0,0</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-6.32212627270726,32.17245801194 -6.32586664374684,32.0443103958274 -6.53570112891276,32.0485655986911 -6.53225350133369,32.1767342916708 -6.32212627270726,32.17245801194</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+</Folder>
+</Document></kml>

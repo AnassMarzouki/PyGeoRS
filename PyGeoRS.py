@@ -82,12 +82,12 @@ def install_package(pkg_name):
 
 def install_packages():
     progress = QProgressDialog("Initializing...", None, 0, 100)
-    progress.setWindowTitle("PyGeoRS v0.1")
+    progress.setWindowTitle("PyGeoRS v0.2")
     progress.setWindowModality(Qt.WindowModal)
     progress.setFixedSize(300, 120)
 
-    packages_to_install = ["rasterio", "earthpy", "unmixing", "scikit-learn"]
-    packages_to_check = ["rasterio", "earthpy", "unmixing", "sklearn"]
+    packages_to_install = ["rasterio", "earthpy", "unmixing", "scikit-learn", "dask"]
+    packages_to_check = ["rasterio", "earthpy", "unmixing", "sklearn", "dask"]
 
     packages_installed_in_session = False
 
@@ -106,7 +106,7 @@ def install_packages():
 
 
 if not read_config():
-    if not all(package_installed(pkg) for pkg in ["rasterio", "earthpy", "unmixing", "sklearn"]):
+    if not all(package_installed(pkg) for pkg in ["rasterio", "earthpy", "unmixing", "sklearn", "dask"]):
         packages_installed_in_this_session = install_packages()
         update_config(True)
 
@@ -114,7 +114,7 @@ if not read_config():
             msg_box = QMessageBox()
             msg_box.setIcon(QMessageBox.Information)
             msg_box.setText("Installation completed. Please restart QGIS to ensure all changes take effect.")
-            msg_box.setWindowTitle("PyGeoRS v0.1")
+            msg_box.setWindowTitle("PyGeoRS v0.2")
             msg_box.exec_()
 
 
@@ -362,7 +362,7 @@ class PyGeoRS:
             self.dlg.pB_load_shapefile.hide()
 
             self.dlg.pB_quit.clicked.connect(self.pygeors_functions.close_main_window) #Close main window
-            self.dlg.pB_load_shapefile.clicked.connect(self.pygeors_functions.load_shapefile) #Close main window
+            self.dlg.pB_load_shapefile.clicked.connect(self.pygeors_functions.load_vector_file) #Close main window
             self.dlg.pB_load_mtl.clicked.connect(self.pygeors_functions.load_mtl) 
             self.dlg.pB_select_output_folder.clicked.connect(self.pygeors_functions.select_output_folder)
             self.dlg.pB_help.clicked.connect(self.pygeors_functions.show_help) #load dlg
@@ -398,8 +398,15 @@ class PyGeoRS:
             self.dlg.comboBox_10.activated[str].connect(self.pygeors_functions.e_br_activated) #BLUE BR --> e
             self.dlg.comboBox_11.activated[str].connect(self.pygeors_functions.f_br_activated) #BLUE BR --> f
 
-            #ComboBox for Indices:
-            self.dlg.comboBox_4.activated[str].connect(self.pygeors_functions.index_activated)
+
+            #CheckBox for enabling Indice calculation
+            self.dlg.cB_calculate_index.stateChanged.connect(self.pygeors_functions.enable_indice_list)
+
+            #checkBox for enabling ratio generation
+            self.dlg.cB_calculate_br.stateChanged.connect(self.pygeors_functions.enable_band_ratio)
+
+            #checkBox for enabling FCC generation
+            self.dlg.cB_generate_fcc.stateChanged.connect(self.pygeors_functions.enable_generate_fcc)
 
             #Radio buttons YES / NO to toggle shapefile load
             self.dlg.radioButton = self.dlg.findChild(QRadioButton)

@@ -10,27 +10,27 @@
     <x>0</x>
     <y>0</y>
     <width>919</width>
-    <height>847</height>
+    <height>700</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>919</width>
-    <height>847</height>
+    <height>700</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>919</width>
-    <height>847</height>
+    <height>700</height>
    </size>
   </property>
   <property name="windowTitle">
-   <string>PyGeoRS v0.1</string>
+   <string>PyGeoRS v0.2</string>
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/pygeors/icon.png</normaloff>../AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/pygeors/icon.png</iconset>
+    <normaloff>icon.png</normaloff>icon.png</iconset>
   </property>
   <property name="locale">
    <locale language="English" country="World"/>
@@ -318,12 +318,62 @@
     </item>
     <item>
      <property name="text">
+      <string>Clay Minerals Ratio</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Enhanced Vegetation Index (EVI)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Ferrous Minerals Ratio</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Iron Oxyde Ratio</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Modified Bare Soil Index (BSI)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
       <string>Modified Normalized Difference Water Index (MNDWI)</string>
      </property>
     </item>
     <item>
      <property name="text">
+      <string>Modified Soil Adjusted Vegetation Index (MSAVI)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Normalized Burn Ratio (NBR)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Normalized Burn Ratio 2 (NBR2)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Normalized Difference Built-up Index (NDBI)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
       <string>Normalized Difference Enhanced Sand Index (NDESI)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Normalized Difference Snow Index (NDSI)</string>
      </property>
     </item>
     <item>
@@ -338,17 +388,7 @@
     </item>
     <item>
      <property name="text">
-      <string>Clay Minerals Ratio</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Ferrous Minerals Ratio</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Iron Oxyde Ratio</string>
+      <string>Soil Adjusted Vegetation Index (SAVI)</string>
      </property>
     </item>
    </widget>
@@ -995,7 +1035,7 @@
      <rect>
       <x>10</x>
       <y>120</y>
-      <width>211</width>
+      <width>281</width>
       <height>20</height>
      </rect>
     </property>
@@ -1005,7 +1045,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Convert DN to ToA Reflectances</string>
+     <string>Convert DN to ToA Reflectances (L1 only)</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_13">
@@ -1023,7 +1063,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Crop using shapefile ?</string>
+     <string>Crop using vector ?</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pB_load_shapefile">
@@ -1041,7 +1081,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Load ShapeFile</string>
+     <string>Load Vector</string>
     </property>
    </widget>
    <widget class="QCheckBox" name="cB_extract_archive">
@@ -1109,7 +1149,7 @@
      <rect>
       <x>280</x>
       <y>120</y>
-      <width>151</width>
+      <width>121</width>
       <height>28</height>
      </rect>
     </property>
@@ -1264,25 +1304,6 @@
     <string>Progression</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_12">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>640</y>
-     <width>91</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>File Explorer</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pB_load_data">
    <property name="geometry">
     <rect>
@@ -1322,21 +1343,11 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QTreeView" name="treeView">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>660</y>
-     <width>881</width>
-     <height>141</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pB_quit">
    <property name="geometry">
     <rect>
-     <x>790</x>
-     <y>810</y>
+     <x>810</x>
+     <y>660</y>
      <width>93</width>
      <height>28</height>
     </rect>
@@ -1393,7 +1404,15 @@
    <property name="font">
     <font>
      <pointsize>8</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+     <underline>false</underline>
+     <kerning>true</kerning>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(85, 255, 0);</string>
    </property>
    <property name="text">
     <string>P R O C E E D</string>

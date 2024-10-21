@@ -6,7 +6,7 @@
 name=PyGeoRS
 qgisMinimumVersion=3.0
 description=PyGeoRS is a dynamic QGIS plugin designed to streamline and enhance your remote sensing workflow within the QGIS environment.
-version=0.1
+version=0.2
 author=Dr. Anass MARZOUKI, Pr. Abdallah DRIDRI
 email=anass.marzouki@usmba.ac.ma
 
@@ -14,14 +14,17 @@ about=With PyGeoRS, users can effortlessly automate an array of remote sensing o
 
 tracker=https://github.com/AnassMarzouki/PyGeoRS/issues
 repository=https://github.com/AnassMarzouki/PyGeoRS
-# End of mandatory metadata
 
-# Recommended items:
-
-hasProcessingProvider=no
-# Uncomment the following line and add your changelog:
-# changelog=
-
+changelog=
+    * Version 0.2 (Release Date: October 21, 2024)
+    * Subsetting by vector: Now supports KML/KMZ file formats for more versatile input options.
+	*Feature Controls: Indices, Ratios, and False Color Composite (FCC) calculations are now only performed if their respective checkboxes are checked, improving user control and performance.
+	*New Indices: Added additional indices to enhance data analysis capabilities.
+	*Progress Bar: Fixed progress bar display and functionality for smoother workflow tracking.
+	*Removed File Explorer: The integrated file explorer has been removed from the interface.
+	*Output Folder Navigation: Added a pop-up window to allow users to easily navigate to the output folder after processing is completed.
+	*MNF Speed: Fixed an issue affecting the speed of MNF (Minimum Noise Fraction) calculations for improved performance.
+	*Fixed minors bugs.
 # Tags are comma separated with spaces allowed
 tags=python, remote sensing, digital image processing, automation
 
@@ -29,7 +32,7 @@ homepage=https://github.com/AnassMarzouki/PyGeoRS
 category=Plugins
 icon=icon.png
 # experimental flag
-experimental=True
+experimental=False
 
 # deprecated flag (applies to the whole plugin, not just a single version)
 deprecated=False
