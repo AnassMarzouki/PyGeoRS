@@ -5,38 +5,23 @@ from qgis.utils import *
 from qgis import *
 from PyQt5.QtWidgets import *
 import concurrent.futures
-
-
-
-
 from qgis.core import QgsVectorLayer, QgsProject, QgsCoordinateTransform, QgsCoordinateReferenceSystem
-
-
-# Initialize Qt resources from file resources.py
 from .resources import *
-# Import the code for the dialog
 from .PyGeoRS_dialog import PyGeoRSDialog
 import os.path
-
-# Import pushbuttons
 from PyQt5.QtWidgets import QPushButton, QScrollArea, QListWidgetItem
 from PyQt5.QtCore import pyqtSlot, QThread, Qt, QModelIndex
 
 import itertools
 from osgeo import gdal
-#import pykml
-
 import rasterio
 import numpy as np
 import os
 import tarfile
-
 from qgis.PyQt import QtWidgets, uic
 from qgis.core import (QgsRasterLayer)
 from qgis.core import (QgsVectorLayer)
-
 import sys
-
 from PyQt5.QtGui import QIcon, QTextCursor
 from PyQt5 import QtWidgets, QtGui, uic, QtCore
 
@@ -94,15 +79,11 @@ class RSFunctions:
 
         #fcc items
         self.fcc_combo = [self.dlg.comboBox, self.dlg.comboBox_2, self.dlg.comboBox_3]
-
         self.dlg.comboBox_4.setEnabled(False)
-
-        
 
     def welcome_msg(self):
         self.print_to_scroll_area('<b> Welcome to PyGeoRS </b>')
         self.print_to_scroll_area('Start by loading your Landsat 8 / 9 image and set an output folder')
-
 
     def select_output_folder(self):
         #self.working_path = working_path
@@ -127,21 +108,17 @@ class RSFunctions:
             for item in self.fcc_combo:
                 item.setEnabled(False)
 
-
-
-
             if self.landsat_file[0].endswith(".tar.gz") or self.landsat_file[0].endswith(".tar"):
-                self.dlg.cB_extract_archive.setChecked(True) #Force Extract
-                self.dlg.cB_extract_archive.setEnabled(False) # Disable Extract
+                self.dlg.cB_extract_archive.setChecked(True) 
+                self.dlg.cB_extract_archive.setEnabled(False) 
                 self.dlg.cB_layer_stacking.setEnabled(False)
-                self.dlg.cB_layer_stacking.setChecked(True) #Force LayerStacking
-                #self.dlg.pB_load_mtl.hide()
+                self.dlg.cB_layer_stacking.setChecked(True) 
 
             if self.landsat_file[0].endswith(".tif"):
                 self.dlg.cB_extract_archive.setChecked(False)
-                self.dlg.cB_extract_archive.setEnabled(False) #Disable archive
-                self.dlg.cB_layer_stacking.setChecked(False) #Unchek LS
-                self.dlg.cB_layer_stacking.setEnabled(False) #Disable layerstack
+                self.dlg.cB_extract_archive.setEnabled(False) 
+                self.dlg.cB_layer_stacking.setChecked(False) 
+                self.dlg.cB_layer_stacking.setEnabled(False) 
 
     def enable_indice_list(self):
         if self.dlg.cB_calculate_index.isChecked():
@@ -156,8 +133,7 @@ class RSFunctions:
             else:
                 item.setEnabled(False)
 
-    def enable_generate_fcc(self):
-        
+    def enable_generate_fcc(self):      
         for item in self.fcc_combo:
 
             if self.dlg.cB_generate_fcc.isChecked():
@@ -165,7 +141,7 @@ class RSFunctions:
             else:
                 item.setEnabled(False)
 
-    def load_landsat_data(self): #WORKING OK - FF#
+    def load_landsat_data(self): 
         import tarfile
         search_string_LC8 = 'SPACECRAFT_ID = "LANDSAT_8"'
         search_string_LC9 = 'SPACECRAFT_ID = "LANDSAT_9"'
@@ -182,15 +158,12 @@ class RSFunctions:
         QApplication.processEvents()
         #Check if input file ends with tar.gz or tif
 
-
-
         if not (self.landsat_file[0].endswith(".tar.gz") or self.landsat_file[0].endswith(".tif") or self.landsat_file[0].endswith(".tar")):
             self.print_to_scroll_area('File not supported ! Only .tar.gz / tar & .tif Landsat 8 and 9 files are supported')
 
         self.loaded_file_is_archive = False
         if self.landsat_file[0].endswith(".tar.gz") or self.landsat_file[0].endswith(".tar"):
                 #Check if the input file is a Landsat 8 image
-                
                 tar_file_name = self.landsat_file[0]
 
                 compression_format = "r:gz" if self.landsat_file[0].endswith(".tar.gz") else "r:"
@@ -239,7 +212,6 @@ class RSFunctions:
                                     self.loaded_file_is_archive = True
                                     break
 
-
                         else:
                             self.print_to_scroll_area('Search string not found in any MTL.txt file.')
                 except FileNotFoundError:
@@ -254,7 +226,6 @@ class RSFunctions:
             self.input_is_tif = gdal.Open(self.destfile)
             if self.input_is_tif.RasterCount == 7:
 
-                #return input_is_tif
                 self.dlg.lineEdit_2.clear()
                 self.dlg.lineEdit_2.setText(f"{self.landsat_file[0]}")
                 self.print_to_scroll_area(f"<span style='color:green;'>{self.destfile}</span> is a valid Landsat 8 / 9 image")
@@ -263,7 +234,6 @@ class RSFunctions:
                 
             else:
                 self.print_to_scroll_area("<span style='color:red;'>WARNING : Invalid Landsat 8/9 image !</span>")
-
 
     def dn_to_toa_cb_changed(self, state):
         if state == QtCore.Qt.Checked:
@@ -275,19 +245,14 @@ class RSFunctions:
         else:
             self.dlg.pB_load_mtl.hide()
 
-    def load_mtl(self): # WORKING #
-        
-
+    def load_mtl(self):
         self.MTL_path, _ = QFileDialog.getOpenFileName(self.dlg, "Open Text File", "", "Text Files (*.txt)")
-        
         if self.MTL_path:
-
             with open(self.MTL_path) as MTLfile:
                 lines = MTLfile.readlines()
                 lt_tag = '    LANDSAT_SCENE_ID'
                 lt_tag2 = '    LANDSAT_PRODUCT_ID'
                 lt_tag3 = '    FILE_DATE'
-
                 valid_MTL = False
 
                 for row in lines:
@@ -304,24 +269,18 @@ class RSFunctions:
             self.print_to_scroll_area('please select an MTL file')
 
 
-    #Show / Hide Load shapefile button [WORKING]
     def enablePushButton(self, radioButton, radioButton_2):
         if radioButton.isChecked():
-            #self.pushButton.setEnabled(True)
             self.dlg.pB_load_shapefile.show()
         elif radioButton_2.isChecked():
-            #self.pushButton.setEnabled(False)
             self.dlg.pB_load_shapefile.hide()   
 
 
-    #Load shp kml kmz vector files
-    def load_vector_file(self):  # Updated function name to reflect broader support
-        # parent_directory = os.path.dirname(self.destfile)
+    def load_vector_file(self):
         file_filter = "Vector Files (*.shp *.kml *.kmz)"
         self.vector_file_path = QFileDialog.getOpenFileName(self.dlg, 'Open vector file', '', file_filter)
-        
         if not self.vector_file_path[0]:
-            return  # User cancelled file selection
+            return
         
         file_extension = os.path.splitext(self.vector_file_path[0])[1].lower()
         
@@ -334,10 +293,10 @@ class RSFunctions:
             self.print_to_scroll_area(f"<span style='color:blue;'>{self.vector_file_path[0]}</span> ({file_type}) loaded for subset!")
             self.dlg.cB_calculate_mnf.setEnabled(True)
 
-    def print_to_scroll_area(self, text): #WORKING OK#
+    def print_to_scroll_area(self, text):
         self.dlg.textEdit.append(text)
 
-    def close_main_window(self): #WORKING OK#
+    def close_main_window(self):
         self.dlg.close() #Close main Window
         qgis.utils.reloadPlugin('pygeors') #Completely Reload plugin
 
@@ -353,11 +312,10 @@ class RSFunctions:
         for band_text, band_index in zip(bands_text, bands_index):
             if red_fcc_text == band_text:
                 self.r = band_index
-                break  # Exit the loop when a match is found
+                break
 
         if self.r is not None:
             self.selected_band_r = self.r
-            #self.print_to_scroll_area(f"<span style='color:red;'>Red Band= </span>{red_fcc_text}")
         else:
             self.print_to_scroll_area("Invalid band selection")
 
@@ -370,10 +328,8 @@ class RSFunctions:
         for band_text, band_index in zip(bands_text, bands_index):
             if green_fcc_text == band_text:
                 self.g = band_index
-                #self.print_to_scroll_area(f"<span style='color:green;'>Green Band= </span>{green_fcc_text}")
                 return self.g
 
-        # If no match is found, set self.g to None
         self.g = None
         self.print_to_scroll_area("Invalid band selection")
 
@@ -386,10 +342,8 @@ class RSFunctions:
         for band_text, band_index in zip(bands_text, bands_index):
             if blue_fcc_text == band_text:
                 self.b = band_index
-                #self.print_to_scroll_area(f"<span style='color:blue;'>Blue Band= </span>{blue_fcc_text}")
                 return self.b
 
-        # If no match is found, set self.b to None
         self.b = None
         self.print_to_scroll_area("Invalid band selection")
 
@@ -477,27 +431,18 @@ class RSFunctions:
             import numpy as np
             import rasterio
 
-            # Create the output folder if it does not exist
             if not os.path.exists(self.working_path):
                 os.mkdir(self.working_path)
 
             # Open the multiband TIFF image
             with rasterio.open(self.destfile) as src:
                 self.print_to_scroll_area(f"Input file '{self.destfile}' opened successfully")
-
-                # Read the data as a numpy array
                 data = src.read()
-
-                # Get the number of bands and their names
                 num_bands = src.count
                 band_names = src.indexes
-
                 self.print_to_scroll_area(f"Found {num_bands} bands in input file")
-
-                # Get the spatial reference system
                 crs = src.crs
 
-                # Loop through all possible band ratios
                 for i in range(num_bands):
                     for j in range(i+1, num_bands):
                         # Calculate the band ratio
@@ -505,10 +450,8 @@ class RSFunctions:
                         band2 = data[j].astype(np.float32)
                         ratio = np.divide(band1, band2, out=np.zeros_like(band1), where=band2!=0)
 
-                        # Create a new filename based on the band ratio
                         ratio_name = f"{band_names[i]}_{band_names[j]}"
 
-                        # Create a new TIFF file and write the band ratio to it
                         output_path = os.path.join(self.working_path, f"{ratio_name}.tif")
                         with rasterio.open(output_path, 'w', driver='GTiff', width=src.width, height=src.height, count=1, dtype=rasterio.float32, crs=crs, transform=src.transform) as dst:
                             dst.write(ratio, 1)
@@ -525,7 +468,6 @@ class RSFunctions:
             print(f"Subfolder {subfolder_path} already exists.")
             return subfolder_path        
 
-    #Extract Landsat Archive [WORKING]
     def extract_landsat_archive(self):
         if self.landsat_file[0].endswith(".tar.gz") or self.landsat_file[0].endswith(".tar"):
             extracted_files = self.create_subfolder("Extracted_files")
@@ -539,17 +481,10 @@ class RSFunctions:
                 if not os.path.exists(self.extract_path):
                     os.makedirs(self.extract_path)
                 
-                #Progress bar initiation
                 total_files = len(tar.getmembers())
-                # Update the progress bar maximum value
-                # self.dlg.progressBar.setMaximum(total_files)
-                
-                # Display progression using print()
+               
                 for i, member in enumerate(tar.getmembers()):
                     tar.extract(member, self.extract_path)
-                    # Update the progress bar value
-                    # self.dlg.progressBar.setValue(i+1)
-                    # QApplication.processEvents() #Real-time update of the event console
 
             self.print_to_scroll_area(f"Files successfully extracted to <span style='color:blue;'>{self.extract_path}</span>")
         else:
@@ -563,15 +498,12 @@ class RSFunctions:
             self.dlg.lineEdit.setText(f"{self.working_path}")
             self.print_to_scroll_area(f"<span style='color:blue;'>{self.working_path}</span> is set as default working folder !")
 
-            # Clear the listWidget
             self.dlg.listWidget.clear()
 
-            # Repopulate the listWidget with the files in the new path
             for file_name in os.listdir(self.working_path):
                 item = QListWidgetItem(file_name)
                 self.dlg.listWidget.addItem(item)
                 
-            # Connect the itemClicked signal to the on_item_clicked slot
             self.dlg.listWidget.itemClicked.connect(self.on_item_clicked)
 
 
@@ -588,7 +520,6 @@ class RSFunctions:
         bands_directory = self.extract_path
         band_fnames = []
         
-        # Dictionary mapping band numbers to their descriptive names
         band_names = {
             '1': 'Coastal_Aerosol',
             '2': 'Blue',
@@ -599,7 +530,6 @@ class RSFunctions:
             '7': 'SWIR2'
         }
         
-        # iterate through the directory
         for filename in os.listdir(bands_directory):
             if re.search(r'(T1|SR)_B[1-7]\.TIF$', filename):
                 band_number = re.search(r'(T1|SR)_B([1-7])\.TIF$', filename).group(2)
@@ -630,18 +560,15 @@ class RSFunctions:
         self.print_to_scroll_area("Band names have been updated with descriptive labels")
 
 
-    def global_oif(self):  # WORKING #
+    def global_oif(self):
         self.print_to_scroll_area("Loading <span style='color:blue;'>Landsat 8</span> file ...")
         
         global destfile
         oif_tif_input = self.destfile
         self.print_to_scroll_area(f"{self.destfile} is the input for OIF")
 
-        # Open the raster file
         with rasterio.open(oif_tif_input) as src:
-            # Read the data into memory
             bands = [src.read(i) for i in range(1, src.count + 1)]
-
             shape = src.shape
             self.print_to_scroll_area(f"<span style='color:green;'>{oif_tif_input}</span> loaded successfully")
             
@@ -678,21 +605,17 @@ class RSFunctions:
             self.print_to_scroll_area(f"OIF Ranks saved in <span style='color:green;'>{self.working_path}</span>")
 
     def oif_parallel(self, bands, correlations):
-        """Parallelizes the OIF calculation for large data."""
         n_bands = len(bands)
         comb = list(itertools.combinations(range(n_bands), 3))
         
-        # Use ThreadPoolExecutor for parallel processing
         with concurrent.futures.ThreadPoolExecutor() as executor:
             futures = [executor.submit(self.calculate_oif, bands, correlations, i, j, k) for i, j, k in comb]
             
-            # Gather the results as they complete
             oif_values = [future.result() for future in concurrent.futures.as_completed(futures)]
 
         return list(zip(range(len(oif_values)), comb, oif_values))
 
     def calculate_oif(self, bands, correlations, i, j, k):
-        """Calculates the OIF for a given combination of three bands."""
         Stdi = np.std(bands[i])
         Stdj = np.std(bands[j])
         Stdk = np.std(bands[k])
@@ -714,15 +637,12 @@ class RSFunctions:
         CHUNK_SIZE = 1000
         
         def get_dataset_info(ds):
-            """Get basic information about the dataset."""
             cols = ds.RasterXSize
             rows = ds.RasterYSize
             bands = ds.RasterCount
             return rows, cols, bands
         
         def process_chunk(data_chunk):
-            """Process a chunk of data, handling NaN values."""
-            # Replace NaN with mean of each band
             for i in range(data_chunk.shape[2]):
                 band_data = data_chunk[:, :, i]
                 mean_val = np.nanmean(band_data)
@@ -730,22 +650,17 @@ class RSFunctions:
             return data_chunk
         
         try:
-            # Open the dataset
             ds = gdal.Open(self.destfile)
             if ds is None:
                 raise ValueError("Could not open the input file")
             
-            # Get dataset dimensions
             rows, cols, n_bands = get_dataset_info(ds)
             
-            # Calculate chunks
             n_chunks_y = (rows + CHUNK_SIZE - 1) // CHUNK_SIZE
             n_chunks_x = (cols + CHUNK_SIZE - 1) // CHUNK_SIZE
             
-            # First pass: Calculate mean and std for standardization
             self.print_to_scroll_area("Pass 1: Calculating statistics...")
             
-            # Initialize arrays for running statistics
             sum_x = np.zeros(n_bands)
             sum_x2 = np.zeros(n_bands)
             n_samples = 0
@@ -875,7 +790,6 @@ class RSFunctions:
                     del chunk_data, chunk_reshaped, chunk_transformed
                     gc.collect()
             
-            # Clean up
             ds = None
             out_ds = None
             
@@ -891,12 +805,7 @@ class RSFunctions:
         except Exception as e:
             self.print_to_scroll_area(f"Error in Calculate PCA: {str(e)}")
 
-        # QApplication.processEvents()
-
-
-        # QApplication.processEvents()
-
-    def calculate_mnf(self): #Working
+    def calculate_mnf(self):
         import numpy as np
         import rasterio
         import dask.array as da
@@ -904,7 +813,7 @@ class RSFunctions:
         from unmixing.lsma import ravel_and_filter
         import pysptools.util as sp_utils
         from dask.diagnostics import ProgressBar
-        import gc  # For explicit garbage collection
+        import gc 
         
         self.print_to_scroll_area("MNF Calculation started ...")
         
@@ -1035,18 +944,11 @@ class RSFunctions:
         
         self.print_to_scroll_area(f"MNF done successfully, MNF file: {mnf_output}")
 
-
-
-
-
-
     def dn_to_toa_archive(self):
     # Check if all the required files are available
         if self.tiffile_isvalid and self.MTL_path:
             pass
-
         if self.tarfile_isvalid:
-
             search_directory = self.extract_path
 
             # Define the file extension to search for
@@ -1107,14 +1009,12 @@ class RSFunctions:
                     sun_elev = float(line.split('=')[1].strip())
 
         self.print_to_scroll_area("Conversion parameters loaded :")
-        # QApplication.processEvents()
 
         import numpy as np
         from osgeo import gdal
         import os
         import math
 
-        # Open the input TIF file
         ds = gdal.Open(self.destfile)
 
         # Get the number of rows and columns in the input TIF file
@@ -1127,9 +1027,6 @@ class RSFunctions:
             band = ds.GetRasterBand(i)
             bands.append(band.ReadAsArray())
 
-        # Get the sun elevation value
-        #sun_elev = 39.11
-        # QApplication.processEvents()
         self.print_to_scroll_area("DN to ToA in progress ...")
         # Calculate the top-of-atmosphere (TOA) reflectance
         toa_reflectance = []
@@ -1155,7 +1052,6 @@ class RSFunctions:
             outds.GetRasterBand(i + 1).WriteArray(toa_reflectance_normalized[i])
         self.print_to_scroll_area(f"DN to ToA conversion successfully done, your ToA file is <span style='color:green;'>{self.destfile}</span>")
 
-        # Close the input and output datasets
         ds = None
         outds = None
 
@@ -1169,33 +1065,27 @@ class RSFunctions:
         self.print_to_scroll_area("ICA Calculation started ...")
         
         try:
-            # Open the dataset without using 'with'
             ds = gdal.Open(self.destfile)
             if ds is None:
                 raise ValueError(f"Could not open the input file: {self.destfile}")
             
             try:
-                # Get image dimensions
                 x_size = ds.RasterXSize
                 y_size = ds.RasterYSize
                 n_bands = ds.RasterCount
                 
                 self.print_to_scroll_area(f"Image dimensions: {x_size}x{y_size} pixels, {n_bands} bands")
                 
-                # Check if image is too large
                 if x_size > 3000 or y_size > 3000:
                     self.print_to_scroll_area('ICA not supported for large files (>3000 pixels in any dimension)')
                     self.print_to_scroll_area('Please consider cropping your image first')
                     return
                 
-                # Proceed with ICA if image size is acceptable
                 self.print_to_scroll_area(f"Image size acceptable, proceeding with ICA...")
                 
                 try:
-                    # Initialize output array
                     data = np.zeros((x_size * y_size, n_bands), dtype=np.float32)
                     
-                    # Read bands
                     for i in range(n_bands):
                         band = ds.GetRasterBand(i + 1)
                         band_data = band.ReadAsArray()
@@ -1293,19 +1183,12 @@ class RSFunctions:
             if ds is not None:
                 ds = None
 
-            
-
-
-    
-
-    #Subset by a vector file : .shp / .kml / .kmz
     def subset_by_vector(self):
         self.print_to_scroll_area("Subset triggered")
         if not self.vector_file_path[0] or not self.destfile:
             self.print_to_scroll_area("<span style='color:red;'>LayerStack image and/or vector file is missing!</span>")
             return
 
-        # Load the KML/KMZ or shapefile using QgsVectorLayer
         file_extension = os.path.splitext(self.vector_file_path[0])[1].lower()
         if file_extension in ['.kml', '.kmz', '.shp']:
             vector_layer = QgsVectorLayer(self.vector_file_path[0], "vector_layer", "ogr")
@@ -1316,23 +1199,19 @@ class RSFunctions:
             self.print_to_scroll_area("<span style='color:red;'>Unsupported file format. Please use .shp, .kml, or .kmz</span>")
             return
 
-        # Load the raster
         raster_layer = gdal.Open(self.destfile)
         if not raster_layer:
             self.print_to_scroll_area("<span style='color:red;'>Failed to load raster file!</span>")
             return
 
-        # Ensure CRS match between vector and raster
         raster_crs = QgsCoordinateReferenceSystem(raster_layer.GetProjection())
         vector_crs = vector_layer.crs()
         if vector_crs != raster_crs:
             transformer = QgsCoordinateTransform(vector_crs, raster_crs, QgsProject.instance())
             vector_layer.setCrs(raster_crs)
 
-        # Define output file path for the subset
         output_file = os.path.join(self.working_path, "Subset.tif")
 
-        # Subset the raster using the vector file
         try:
             gdal.Warp(
                 output_file, self.destfile,
@@ -1440,11 +1319,9 @@ class RSFunctions:
 
             fcc_output_image = driver.Create(fcc_output_path, x_size, y_size, 3, gdal.GDT_Float32)
 
-            # Set the projection and geotransform of the output image
             fcc_output_image.SetProjection(img.GetProjection())
             fcc_output_image.SetGeoTransform(img.GetGeoTransform())
 
-            # Write the new 3-band TIFF image
             for x in range(3):
                 fcc_output_image.GetRasterBand(x + 1).WriteArray(sabins_image[..., x])
 
@@ -1486,16 +1363,13 @@ class RSFunctions:
 
     def calculate_band_ratio(self):
         global a_br_var, b_br_var, c_br_var, d_br_var, e_br_var, f_br_var
-        # Check if self.working_path is set
         if self.working_path is None:
             self.print_to_scroll_area('Select a working path first!')
             return
 
-        # Check if self.input_is_tif is set
         if self.input_is_tif is None:
             self.print_to_scroll_area('Select input data first!')
             return
-            #self.working_path = str(QFileDialog.getExistingDirectory(self, "Select Directory"))
 
         if self.input_is_tif:
 
@@ -1563,7 +1437,7 @@ class RSFunctions:
             if indice_text == code:
                 self.selected_index = code
 
-    # Newli added indices ######################
+    # Newly added indices ######################
     def calculate_mbi(self, input_path):
         with rasterio.open(input_path) as src:
             nir = src.read(5).astype('float32')
@@ -1911,33 +1785,22 @@ class RSFunctions:
 
     def show_popup(self):
         import webbrowser
-        # Create a QMessageBox instance
         self.msg_box = QMessageBox()
-
-        # Set the title and message for the pop-up
         self.msg_box.setWindowTitle("PyGeoRS v0.2")
         self.msg_box.setText("All tasks were completed successfully. Do you want to open the output folder?")
-
-        # Set the icon type (information, warning, etc.)
         self.msg_box.setIcon(QMessageBox.Information)
-
-        # Add two buttons: one for opening the folder, one for closing
         open_button = self.msg_box.addButton("Open Folder", QMessageBox.AcceptRole)
         close_button = self.msg_box.addButton("Close", QMessageBox.RejectRole)
 
-        # Show the pop-up and wait for the user to click the button
         self.msg_box.exec_()
 
-        # Check which button was clicked
         if self.msg_box.clickedButton() == open_button:
-            # Open the output folder location
-            output_folder = self.working_path  # Assuming self.working_path is the output folder path
+            output_folder = self.working_path
             if os.path.exists(output_folder):
                 webbrowser.open(f"file:///{output_folder}")
             else:
                 self.print_to_scroll_area("<span style='color:red;'>Output folder does not exist!</span>")
         elif self.msg_box.clickedButton() == close_button:
-            # Close the pop-up and do nothing
             pass
 
     def set_folder_and_proceed(self):
@@ -1945,7 +1808,6 @@ class RSFunctions:
         start_time = time.time()
 
         if self.working_path:
-            # List of tasks, explicitly converting conditions to boolean
             tasks = [
                 bool(self.dlg.cB_extract_archive.isChecked()),
                 bool(self.dlg.cB_layer_stacking.isChecked()),
@@ -1964,7 +1826,6 @@ class RSFunctions:
                 bool(self.dlg.cB_kaufmann.isChecked()),
             ]
 
-            # Count how many tasks are checked (i.e., need to be executed)
             total_tasks = sum(tasks)
 
             # Set progress bar maximum value to the number of tasks
@@ -2078,5 +1939,3 @@ class RSFunctions:
 
         else:
             self.print_to_scroll_area('Input file or output folder not defined')
-
-
