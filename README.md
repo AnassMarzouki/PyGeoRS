@@ -2,9 +2,21 @@
 
 **PyGeoRS** is a dynamic QGIS plugin tailored to enhance and automate your remote sensing tasks within the QGIS environment.
 
-- **Version**: v0.1
+- **Version**: v0.2 (Updated on October 21, 2024)
 - **Supported QGIS Version**: v3.X
 - **Approved by QGIS** : https://plugins.qgis.org/plugins/pygeors/
+
+  ## Changelog v0.2
+- Version 0.2 (Release Date: October 21, 2024)
+- Subsetting by vector: Now supports KML/KMZ file formats for more versatile input options.
+- Feature Controls: Indices, Ratios, and False Color Composite (FCC) calculations are now only performed if their respective checkboxes are checked, improving user control and performance.
+- New Indices: Added additional indices to enhance data analysis capabilities.
+- Progress Bar: Fixed progress bar display and functionality for smoother workflow tracking.
+- Removed File Explorer: The integrated file explorer has been removed from the interface.
+- Output Folder Navigation: Added a pop-up window to allow users to easily navigate to the output folder after processing is completed.
+- MNF Speed: Fixed an issue affecting the speed of MNF (Minimum Noise Fraction) calculations for improved performance.
+- Fixed minors bugs.
+  
 ## How to install
 Automatic install:
 - Search for 'PyGeoRS' in QGIS plugin repository and click install
@@ -50,6 +62,7 @@ Apart from the built-in libraries within QGIS, PyGeoRS requires the following ex
 - Unmixing
 - SciKit-learn
 - EarthPy
+- Dask
 
 These dependencies are set to be automatically installed with the plugin. If, for any reason, the plugin fails to install one or more packages, you can manually install them using the OSGeo4W shell:
 
