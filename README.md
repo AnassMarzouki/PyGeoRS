@@ -6,6 +6,12 @@
 - **Supported QGIS Version**: v3.X
 - **Approved by QGIS** : https://plugins.qgis.org/plugins/pygeors/
 
+## How to cite
+If you used PyGeoRS in your academic research, please cite it as follows:
+
+Marzouki, A., & Dridri, A. (2025). PyGeoRS: a QGIS plugin for automating Landsat data processing in environmental mapping. Earth Science Informatics, 18(1).
+https://doi.org/10.1007/s12145-024-01522-0
+
   ## Changelog v0.2
 - Version 0.2 (Release Date: October 21, 2024)
 - Subsetting by vector: Now supports KML/KMZ file formats for more versatile input options.
@@ -22,7 +28,7 @@ Automatic install:
 - Search for 'PyGeoRS' in QGIS plugin repository and click install
   
 Manual install:
-- Download the beta release from [Github repository](https://github.com/AnassMarzouki/PyGeoRS/releases/download/v0.1/pygeors.zip) or [QGIS Plugin repository](https://plugins.qgis.org/plugins/pygeors/version/0.1.1/download/)
+- Download the beta release from [Github repository](https://github.com/AnassMarzouki/PyGeoRS/releases/download/v0.2/pygeors.zip) or [QGIS Plugin repository](https://plugins.qgis.org/plugins/pygeors/version/0.2/download/)
 - In QGIS, navigate to Plugins menu
 - click 'Manage and Install plugins'
 - From the left tabs, select 'Install from ZIP'
