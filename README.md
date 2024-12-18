@@ -9,7 +9,7 @@
 ## How to cite
 If you used PyGeoRS in your academic research, please cite it as follows:
 
-Marzouki, A., & Dridri, A. (2025). PyGeoRS: a QGIS plugin for automating Landsat data processing in environmental mapping. Earth Science Informatics, 18(1).
+Marzouki, A., & Dridri, A. (2025). PyGeoRS: a QGIS plugin for automating landsat data processing in environmental mapping. Earth Science Informatics, 18(1), 1-12.
 https://doi.org/10.1007/s12145-024-01522-0
 
   ## Changelog v0.2
